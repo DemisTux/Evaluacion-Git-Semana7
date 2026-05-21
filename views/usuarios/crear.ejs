@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Usuario</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+    <div class="navbar">
+        <span>Operador: <strong><%= nombre %></strong></span>
+        <a href="/index" class="btn btn-secundario">⬅ Volver</a>
+    </div>
+
+    <div class="contenedor form-box">
+        <h2>➕ Registrar Nuevo Usuario</h2>
+        <% if (error) { %>
+            <div class="alerta error"><%= error %></div>
+        <% } %>
+        <form action="/crear" method="POST">
+            <div class="grupo-form">
+                <label>RUT (Ej: 12345678-9)</label>
+                <input type="text" name="rut" required>
+            </div>
+            <div class="grupo-form">
+                <label>Nombre de Usuario</label>
+                <input type="text" name="nombreUsuario" required>
+            </div>
+            <div class="grupo-form">
+                <label>Contraseña</label>
+                <input type="password" name="clave" required>
+            </div>
+            <button type="submit" class="btn btn-primario">Guardar Usuario</button>
+        </form>
+    </div>
+</body>
+</html>

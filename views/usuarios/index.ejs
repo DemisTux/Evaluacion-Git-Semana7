@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Principal</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+    <div class="navbar">
+        <span>Usuario activo: <strong><%= nombre %></strong></span>
+        <div>
+            <a href="/crear" class="btn btn-secundario">➕ Nuevo Usuario</a>
+            <a href="/salir" class="btn btn-peligro">🚪 Salir</a>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <h2>Lista de Usuarios Registrados</h2>
+        <table class="tabla-oscura">
+            <thead>
+                <tr>
+                    <th>RUT</th>
+                    <th>Nombre de Usuario</th>
+                    <th>Clave</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% usuarios.forEach(usuario => { %>
+                    <tr>
+                        <td><%= usuario.rut %></td>
+                        <td><%= usuario.nombreUsuario %></td>
+                        <td><%= usuario.clave %></td>
+                        <td>
+                            <a href="/editar/<%= usuario.rut %>" class="btn btn-pequeno btn-secundario">Editar</a>
+                            <a href="/eliminar/<%= usuario.rut %>" class="btn btn-pequeno btn-peligro" onclick="return confirm('¿Seguro que deseas eliminar a este usuario?')">Eliminar</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

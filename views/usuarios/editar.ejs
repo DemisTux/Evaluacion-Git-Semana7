@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Usuario</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+    <div class="navbar">
+        <span>Operador: <strong><%= nombre %></strong></span>
+        <a href="/index" class="btn btn-secundario">⬅ Volver</a>
+    </div>
+
+    <div class="contenedor form-box">
+        <h2>📝 Editar Usuario</h2>
+        <form action="/editar/<%= usuarioData.rut %>" method="POST">
+            <div class="grupo-form">
+                <label>RUT</label>
+                <input type="text" name="rut" value="<%= usuarioData.rut %>" required>
+            </div>
+            <div class="grupo-form">
+                <label>Nombre de Usuario</label>
+                <input type="text" name="nombreUsuario" value="<%= usuarioData.nombreUsuario %>" required>
+            </div>
+            <div class="grupo-form">
+                <label>Contraseña</label>
+                <input type="text" name="clave" value="<%= usuarioData.clave %>" required>
+            </div>
+            <button type="submit" class="btn btn-primario">Actualizar Cambios</button>
+        </form>
+    </div>
+</body>
+</html>
